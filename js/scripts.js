@@ -1,28 +1,60 @@
 $(document).ready(function() {
-  $("form").submit(function(event) {
+  $("#game form").submit(function(event) {
 
-    var inputSentence = $("input#random-sentence").val();
+    event.preventDefault();
 
-    var stringSentence = inputSentence.split(" ");
+    inputSentence = $("input#random-sentence").val();
 
-    var newSentence = [];
+    var arraySentence = inputSentence.split("");
 
-    stringSentence.forEach(function(word){
-      if (word.length >= 3){
-        newSentence.push(word);
-      }
-    });
+    var vowels = ["a", "e", "i", "o", "u"];
 
-    var reverseSentence = newSentence.reverse();
+    // Using two loops and replacing letters in the original array.
 
-    var finalSentence = reverseSentence.join(" ");
+    for (var i = 0; i < arraySentence.length; i++) {
+      for (var j = 0; j < vowels.length; j++) {
+          if (arraySentence[i] === vowels[j]){
+          arraySentence[i] = "-"
+        }
+      };
+    };
 
-    $("#transformed-sentence").text(finalSentence);
+    // Using only one loop and indexOf():
+
+    // for (var i = 0; i < arraySentence.length; i++) {
+    //       if (vowels.indexOf(arraySentence[i]) == -1){
+    //       newSentence.push(inputSentence[i]);
+    //     } else {
+    //       newSentence.push("-");
+    //     }
+    // };
+
+    // Using one loop and branching:
+
+    // for (var i = 0; i < inputSentence.length; i++) {
+    //   if (inputSentence[i] === "a" || inputSentence[i] === "e" || inputSentence[i] === "i" || inputSentence[i] === "o" || inputSentence[i] === "u" ) {
+    //     newSentence.push("-");
+    //   } else {
+    //     newSentence.push(inputSentence[i]);
+    //   }
+    // }
+
+    var final = arraySentence.join(" ")
+
+    $("#transformed-sentence").text(final);
 
     $(".display-transformed-sentence").show();
     $(".input-sentence").hide();
+  });
+
+  $("#solve form").submit(function(event) {
 
     event.preventDefault();
+
+    $(".display-solution").show();
+    $("#original-sentence").text(inputSentence);
+
+
 
   });
 });

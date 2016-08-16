@@ -3,7 +3,7 @@ body {
   background-image: url("../img/textured_paper.png");
 }
 
-.display-transformed-sentence {
+.display-transformed-sentence, .display-solution {
   display: none;
 }
 
