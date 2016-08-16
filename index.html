@@ -9,17 +9,31 @@
     <title>Word Play</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container input-sentence">
       <div class="jumbotron">
-        <h2>Enter a random sentence below.</h2>
+        <h1>Enter a random sentence below.</h1>
+        <p>
+          And you'll get a new sentence made of all the words with more than three characters, reversed. Just because. 
+        </p>
       </div>
       <form>
         <div class="form-group">
           <label for="random-sentence"></label>
-          <input id="random-sentence" class="form-control" type="text" >
+          <input id="random-sentence" class="form-control input-lg" type="text" >
         </div>
-        <button type="submit" class="btn">Play</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Play</button>
       </form>
     </div>
+    <div class="container display-transformed-sentence">
+      <div class="panel panel-default">
+          <div class="panel-body">
+              <h1>This is your new sentence:</h1>
+              <h2>
+                "<span id="transformed-sentence"></span>."
+              </h2>
+          </div>
+      </div>
+    </div>
+
   </body>
 </html>

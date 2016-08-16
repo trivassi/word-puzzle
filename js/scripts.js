@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   $("form").submit(function(event) {
 
@@ -18,7 +17,10 @@ $(document).ready(function() {
 
     var finalSentence = reverseSentence.join(" ");
 
-    alert(finalSentence);
+    $("#transformed-sentence").text(finalSentence);
+
+    $(".display-transformed-sentence").show();
+    $(".input-sentence").hide();
 
     event.preventDefault();
 
